@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Boosting Your Bottom Line: The ROI of AI Visual Inspection in Manufacturing",
+    "description": "Discover the tangible return on investment (ROI) that advanced AI visual inspection brings to PCBA manufacturing. This article will outline how reduced false calls, faster programming, and real-time SPC data contribute to significant cost savings and improved production quality, making a compelling case for smart factory adoption.",
+    "keywords": [
+      "AI visual inspection",
+      "quality control automation",
+      "smart manufacturing",
+      "automated optical inspection",
+      "ROI"
+    ],
+    "target_audience": "Manufacturing executives",
+    "content_pillar": "Quality inspection automation ROI",
+    "estimated_search_volume": "high",
+    "status": "planned",
+    "created_at": "2026-02-12T17:14:36.764755"
+  },
+  {
+    "title": "Eliminate False Calls: How Semantic AI Filters Revolutionize PCB Defect Detection",
+    "description": "False calls are a major bottleneck in PCBA inspection, leading to unnecessary reworks and wasted time. This post will explain how DaoAI's unique Semantic False Call Filter, powered by advanced AI, accurately distinguishes between true defects and acceptable variations, drastically improving inspection accuracy and throughput.",
+    "keywords": [
+      "PCB defect detection",
+      "AI visual inspection",
+      "PCBA inspection",
+      "quality control automation",
+      "SMT inspection"
+    ],
+    "target_audience": "Quality engineers",
+    "content_pillar": "AI AOI technology insights and trends",
+    "estimated_search_volume": "medium",
+    "status": "planned",
+    "created_at": "2026-02-12T17:14:36.764771"
+  },
+  {
+    "title": "Industry 4.0 Ready: Integrating AI AOI for Real-Time Smart Manufacturing Insights",
+    "description": "Explore how next-generation AI AOI systems like DaoAI's P-Series are foundational to Industry 4.0 and smart manufacturing initiatives. This article will highlight the power of Real-Time SPC Dashboards and data analytics in providing actionable insights, enabling predictive maintenance, and driving continuous improvement in PCBA production lines.",
+    "keywords": [
+      "smart manufacturing",
+      "Industry 4.0",
+      "AI AOI",
+      "quality control automation",
+      "PCBA inspection"
+    ],
+    "target_audience": "EMS manufacturers",
+    "content_pillar": "Industry 4.0 and smart manufacturing",
+    "estimated_search_volume": "high",
+    "status": "planned",
+    "created_at": "2026-02-12T17:14:36.764773"
+  },
+  {
+    "title": "The Future of High-Mix Production: Why Zero-Programming AI AOI is Essential",
+    "description": "For high-mix PCBA manufacturers, the agility to switch products quickly without extensive setup is crucial. This post will compare traditional AOI methods with DaoAI's AI-driven, zero-programming approach, demonstrating how it provides unparalleled flexibility, significantly reduces changeover times, and enhances productivity for diverse product lines.",
+    "keywords": [
+      "AI AOI",
+      "automated optical inspection",
+      "SMT inspection",
+      "PCBA inspection",
+      "quality control automation"
+    ],
+    "target_audience": "PCBA contract manufacturers",
+    "content_pillar": "PCBA manufacturing best practices",
+    "estimated_search_volume": "medium",
+    "status": "planned",
+    "created_at": "2026-02-12T17:14:36.764774"
+  }
+]

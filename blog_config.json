@@ -1,0 +1,52 @@
+{
+  "hubspot_portal_id": 39868957,
+  "blog_id": "184059507994",
+  "default_author_id": null,
+  "content_language": "en",
+  "company_context": "DaoAI is an AI visual inspection company. Core product: P-Series 2D PCBA AI AOI (Automated Optical Inspection). Key tech: SMT Visual AI, Auto BOM Matching, Semantic False Call Filter, Real-Time SPC Dashboard. Models: P1 (high-mix), P2 (high-volume SMT), P3/P3D. Value prop: Reduces AOI programming from 3 hours to 5 minutes, no Golden Board needed. Competitors: Koh Young, Mirtec, Omron \u2014 DaoAI differentiates with AI-driven, zero-programming approach.",
+  "target_audience": [
+    "EMS manufacturers",
+    "PCBA contract manufacturers",
+    "Quality engineers",
+    "Manufacturing executives",
+    "Process engineers"
+  ],
+  "content_pillars": [
+    "AI AOI technology insights and trends",
+    "PCBA manufacturing best practices",
+    "Industry 4.0 and smart manufacturing",
+    "Quality inspection automation ROI",
+    "DaoAI product updates and case studies"
+  ],
+  "tone": "professional, authoritative, accessible, data-driven",
+  "word_count_range": [
+    800,
+    1500
+  ],
+  "publish_mode": "draft",
+  "schedule": {
+    "posts_per_week": 2,
+    "preferred_days": [
+      "Tuesday",
+      "Thursday"
+    ],
+    "preferred_time": "10:00"
+  },
+  "analytics": {
+    "check_interval_days": 7,
+    "min_views_threshold": 100,
+    "top_n_for_iteration": 5
+  },
+  "seo": {
+    "focus_keywords": [
+      "AI AOI",
+      "automated optical inspection",
+      "PCBA inspection",
+      "SMT inspection",
+      "AI visual inspection",
+      "smart manufacturing",
+      "quality control automation",
+      "PCB defect detection"
+    ]
+  }
+}
