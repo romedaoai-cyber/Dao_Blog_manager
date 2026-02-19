@@ -27,6 +27,18 @@ HUBSPOT_API_BASE = "https://api.hubapi.com"
 CMS_BLOG_POSTS = f"{HUBSPOT_API_BASE}/cms/v3/blogs/posts"
 CMS_BLOGS = f"{HUBSPOT_API_BASE}/cms/v3/blogs/posts"  # list endpoint
 FILE_MANAGER = f"{HUBSPOT_API_BASE}/filemanager/api/v3/files/upload"
+LAST_ERROR = ""
+
+
+def set_last_error(message):
+    """Store the last user-facing HubSpot error for UI display."""
+    global LAST_ERROR
+    LAST_ERROR = message or ""
+
+
+def get_last_error():
+    """Return the most recent HubSpot error message."""
+    return LAST_ERROR
 
 
 def load_access_key():
@@ -154,10 +166,12 @@ def create_post(title, body_html, meta_description="", slug="", author_id=None,
     """
     access_key = load_access_key()
     if not access_key:
+        set_last_error("No HubSpot access key found.")
         return None
 
     blog_id = detect_blog_id()
     if not blog_id:
+        set_last_error("No blog ID detected. Ensure your portal has a blog and blog_id is configured.")
         return None
 
     # Build slug from title if not provided
@@ -184,9 +198,16 @@ def create_post(title, body_html, meta_description="", slug="", author_id=None,
         post_data["tagIds"] = tags
 
     headers = get_headers(access_key)
-    resp = requests.post(CMS_BLOG_POSTS, headers=headers, json=post_data)
+    try:
+        resp = requests.post(CMS_BLOG_POSTS, headers=headers, json=post_data, timeout=30)
+    except requests.exceptions.RequestException as e:
+        err = f"HubSpot request failed before response: {e}"
+        set_last_error(err)
+        print(f"❌ {err}")
+        return None
 
     if resp.status_code in (200, 201):
+        set_last_error("")
         result = resp.json()
         post_id = result.get("id")
         print(f"✅ Draft created: {title}")
@@ -197,8 +218,10 @@ def create_post(title, body_html, meta_description="", slug="", author_id=None,
         _save_local_post(post_id, title, slug, "DRAFT")
         return post_id
     else:
-        print(f"❌ Failed to create post: {resp.status_code}")
-        print(f"   {resp.text[:300]}")
+        detail = resp.text[:300]
+        err = f"Failed to create post ({resp.status_code}): {detail}"
+        set_last_error(err)
+        print(f"❌ {err}")
         return None
 
 

@@ -242,7 +242,13 @@ elif page == "Content Studio":
                                     t['post_id'] = post_id
                             save_queue(queue)
                         else:
-                            st.error("Publish failed. Check logs.")
+                            detail = ""
+                            if hasattr(hubspot_client, "get_last_error"):
+                                detail = hubspot_client.get_last_error() or ""
+                            if detail:
+                                st.error(f"Publish failed: {detail}")
+                            else:
+                                st.error("Publish failed. Check logs.")
 
 # ──────────────────────────────────────────────
 # Page 3: Image Studio
