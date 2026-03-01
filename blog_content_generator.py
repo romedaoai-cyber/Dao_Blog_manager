@@ -185,7 +185,10 @@ REQUIREMENTS:
 1. Structure with standard Introduction, Body Paragraphs (H2s), and Conclusion.
 2. Under each H2, list 3-5 bullet points of key information to cover.
 3. Ensure the flow is logical and persuasive.
-4. return ONLY the outline in Markdown format.
+4. CRITICAL: For EVERY heading (H1, H2) and EVERY bullet point, you MUST provide the English original first, followed immediately by the Traditional Chinese (zh-TW) translation on a new line, italicized or separated clearly. For example:
+   - English point here.
+   *(中文翻譯放這裡)*
+5. return ONLY the outline in Markdown format.
 """
 
     try:

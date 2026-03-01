@@ -43,12 +43,32 @@ def get_last_error():
 
 def load_access_key():
     """Load HubSpot access key from env var, hubspot.config.yml, or .env file."""
-    # 1. Try environment variable
-    env_key = os.environ.get("HUBSPOT_ACCESS_KEY")
-    if env_key:
-        return env_key
+    # 1. Try environment variables (local/dev/cloud runtimes)
+    for key_name in (
+        "HUBSPOT_ACCESS_KEY",
+        "HUBSPOT_PRIVATE_APP_TOKEN",
+        "HUBSPOT_ACCESS_TOKEN",
+    ):
+        env_key = os.environ.get(key_name)
+        if env_key:
+            return env_key
 
-    # 2. Try hubspot.config.yml (most reliable)
+    # 2. Try Streamlit secrets (Streamlit Cloud)
+    try:
+        import streamlit as st  # Optional dependency in non-UI contexts
+
+        for key_name in (
+            "HUBSPOT_ACCESS_KEY",
+            "HUBSPOT_PRIVATE_APP_TOKEN",
+            "HUBSPOT_ACCESS_TOKEN",
+        ):
+            secret_val = st.secrets.get(key_name)
+            if secret_val:
+                return str(secret_val)
+    except Exception:
+        pass
+
+    # 3. Try hubspot.config.yml
     if HUBSPOT_CONFIG.exists():
         try:
             with open(HUBSPOT_CONFIG, "r") as f:
@@ -66,7 +86,7 @@ def load_access_key():
         except Exception as e:
             print(f"⚠️ Could not read hubspot.config.yml: {e}")
 
-    # 3. Try .env file (may have permission issues)
+    # 4. Try .env file (may have permission issues)
     try:
         if ENV_FILE.exists():
             with open(ENV_FILE, "r") as f:
@@ -77,7 +97,10 @@ def load_access_key():
     except PermissionError:
         pass  # .env may have restricted permissions
 
-    print("❌ No HubSpot access key found. Set HUBSPOT_ACCESS_KEY env var or check hubspot.config.yml")
+    print(
+        "❌ No HubSpot access key found. Set HUBSPOT_ACCESS_KEY (or HUBSPOT_PRIVATE_APP_TOKEN) "
+        "in env/secrets, or configure hubspot.config.yml"
+    )
     return None
 
 
